@@ -1,13 +1,18 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import Tweets from './Tweets'
+import {formatDate} from '../utils/helpers'
 
 class Dashboard extends Component{
     render() {
         return (
-            <div>
+            <div className='container'>
                 <ul>
-                    {this.props.tweetIds.map((tweet)=>(
-                        <li key={tweet}>{tweet}</li>
+                    {this.props.tweetIds.map((id)=>(
+                        // 一个一个把tweet发送给 Tweets组件
+                        <li key={id}>
+                            <Tweets id={id}/>
+                        </li>
                     ))}
                 </ul>
             </div>
