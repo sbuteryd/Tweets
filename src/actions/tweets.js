@@ -1,4 +1,4 @@
-export const TWEETS = 'TWEETS';
+export const TWEETS = 'GET_TWEETS';
 
 export function get_tweets(tweets) {
     return {
