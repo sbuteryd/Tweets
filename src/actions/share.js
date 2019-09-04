@@ -8,11 +8,12 @@ const AUTHED_USER = 'tylermcginnis'
 
 export function handleInitData() {
     return (dispatch)=>{
-        return API.getInitialData().then(([users,tweets])=>{
-            get_users(users)
-            get_authedUser(AUTHED_USER)
-            get_tweets(tweets)
-
+        return API.getInitialData().then(({users,tweets})=>{
+            console.log(users)
+            dispatch(get_users(users))
+            dispatch(get_authedUser(AUTHED_USER))
+            dispatch(get_tweets(tweets))
+        //
         })
     }
 }

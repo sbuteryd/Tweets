@@ -1,15 +1,23 @@
 import React,{Component} from 'react';
+import {handleInitData} from '../actions/share'
+import * as API from '../utils/api'
+import {connect} from 'react-redux'
 
 
 
 class App extends Component{
-  render() {
+    componentDidMount() {
+        console.log(this.props)
+        this.props.dispatch(handleInitData())
+    }
+
+    render() {
     return (
         <div>
-          APP
+
         </div>
     );
   }
 }
 
-export default App;
+export default connect()(App);
