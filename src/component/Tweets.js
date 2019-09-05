@@ -1,14 +1,17 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import {handleToggleTweet} from '../actions/tweets'
 import {formatDate,formatTweet} from '../utils/helpers'
 
 class Tweets extends Component{
+    changeHeart =(tweet)=>{
+        this.props.dispatch(handleToggleTweet(tweet))
+    }
     render() {
        const {
            avatar,hasLiked,id,likes,
            name,replies,text,
            timestamp} = this.props.tweet
-        console.log('replies',likes)
         return (
             <div className='container'>
                 <div className='container-border'>
@@ -27,8 +30,9 @@ class Tweets extends Component{
                               <button className='textarea-like-forward'/>
                               {replies >0 &&<span className='textarea-like-forward-number' >{replies}</span>
                               }
-                              {hasLiked ? <button className='textarea-like-full '/>
-                                  :<button className='textarea-like-heart'/>
+                              {/*这边爱心不知道什么怎么让爱心点击的两个心*/}
+                              {hasLiked ? <button onClick={()=>this.changeHeart(this.props)}  className='textarea-like-full '/>
+                                  :<button onClick={()=>this.changeHeart(this.props)}  className='textarea-like-heart'/>
                               }
                               {likes >0 &&<span className='textarea-like-like-number' >{likes}</span>
                               }
@@ -43,12 +47,11 @@ class Tweets extends Component{
 }
 
 function mapStateToProps({tweets,users,authedUser},{id}) {
-    //tweet, author, authedUser, parentTweet
-    console.log('mapStateToProps----',users)
     const tweet = tweets[id]
     const parentTweet = tweets[tweet.replyingTo] ? tweets[tweet.replyingTo] :null
     return {
-        tweet:formatTweet(tweet,users[tweet.author],authedUser,parentTweet)
+        tweet:formatTweet(tweet,users[tweet.author],authedUser,parentTweet),
+        authedUser
     }
 }
 
