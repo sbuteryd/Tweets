@@ -6,7 +6,8 @@ import {formatDate} from '../utils/helpers'
 class Dashboard extends Component{
     render() {
         return (
-            <div className='container'>
+            <div className='container-Dashboard'>
+                <h3 className='container-Dashboard-title'>Your Timeline</h3>
                 <ul>
                     {this.props.tweetIds.map((id)=>(
                         // 一个一个把tweet发送给 Tweets组件
