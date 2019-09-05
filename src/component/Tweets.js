@@ -8,7 +8,7 @@ class Tweets extends Component{
            avatar,hasLiked,id,likes,
            name,replies,text,
            timestamp} = this.props.tweet
-        console.log(avatar)
+        console.log('replies',likes)
         return (
             <div className='container'>
                 <div className='container-border'>
@@ -22,11 +22,18 @@ class Tweets extends Component{
                               <h3 className='textarea-info-name'>{name}</h3>
                               <p className=''>{formatDate(timestamp)}</p>
                               <p className='textarea-text-text'>{text}</p>
-
                           </div>
-                          <div className='textarea-like'>
-
+                          <div className='textarea-like-container'>
+                              <button className='textarea-like-forward'/>
+                              {replies >0 &&<span className='textarea-like-forward-number' >{replies}</span>
+                              }
+                              {hasLiked ? <button className='textarea-like-full '/>
+                                  :<button className='textarea-like-heart'/>
+                              }
+                              {likes >0 &&<span className='textarea-like-like-number' >{likes}</span>
+                              }
                           </div>
+
                       </div>
                   </div>
                 </div>

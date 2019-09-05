@@ -43,14 +43,58 @@ ul {
     border-radius:50% ;
 }
 
-.textarea-text-text {
-    width: 95%;
+
+.textarea-like-container {
+    position: relative;
+    top: 10px;
+}
+.textarea-like-forward-number {
+    position: relative;
+    top: -7px;
+    left: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #999999;
+}
+.textarea-like-like-number {
+    position: relative;
+    top: -7px;
+    left: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #999999;
+}
+.textarea-like-heart {
+    background-image: url("./image/heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25px;
+    height:28px;
+    border: 0;
+    position: relative;
+    right: -30px;
 }
 
-.icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
+.textarea-like-full {
+    background-image: url("./image/full-heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25px;
+    height:28px;
+    border: 0;
+    position: relative;
+    right: -30px;
+}
+
+
+.textarea-like-forward {
+    background-image: url("./image/forwar.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 28px;
+    height:28px;
+    border: 0;
 }
