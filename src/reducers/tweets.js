@@ -9,8 +9,6 @@ export function tweets(state={},action) {
             }
         case TOGGLE_TWEET:
             const {authedUser,id,tweet} = action.tweet
-            console.log(authedUser,id)
-
             return  {
                 ...state,
                 [tweet.id]:{

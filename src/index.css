@@ -158,3 +158,21 @@ ul {
 textarea {
     width: 500px;
 }
+
+/*Nav*/
+.nav {
+    position: relative;
+    top: 30px;
+    left: 250px;
+}
+
+.nav-home,
+.nav-new{
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+}
+
+.nav-new {
+    margin-left: 50px;
+}
