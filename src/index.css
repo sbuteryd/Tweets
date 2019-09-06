@@ -63,6 +63,7 @@ ul {
 .textarea-like-container {
     position: relative;
     top: 10px;
+    /*background-color: red;*/
 }
 .textarea-like-forward-number {
     position: relative;
@@ -175,4 +176,13 @@ textarea {
 
 .nav-new {
     margin-left: 50px;
+}
+/*tweet link*/
+
+.tweet {
+    color: black;
+    text-decoration: none;
+}
+.textarea-like-container-list {
+    display: inline-block;
 }
