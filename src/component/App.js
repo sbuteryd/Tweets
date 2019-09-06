@@ -4,6 +4,8 @@ import {handleInitData} from '../actions/share'
 import {connect} from 'react-redux'
 import Dashboard  from '../component/Dashboard'
 import NewTweet from './NewTweet'
+import TweetPage from './TweetPage'
+
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Nav from './Nav'
 
@@ -20,6 +22,7 @@ class App extends Component{
                 <Nav/>
                 <Route path="/" exact component={Dashboard}/>
                 <Route path="/new" component={NewTweet}/>
+                <Route path="/tweet/:id" component={TweetPage}/>
             </Router>
 
         </Fragment>

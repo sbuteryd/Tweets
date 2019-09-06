@@ -38,7 +38,10 @@ class Tweets extends Component {
                                     }
                                     <div className='textarea-like-container-list'  onClick={(e) => this.changeHeart(e,this.props)}>
                                         {hasLiked ? <button className='textarea-like-full '/>
-                                        : <button className='textarea-like-heart'/>
+                                        : <button
+                                                type='submit'
+                                                disabled={text ===''}
+                                                className='textarea-like-heart'/>
                                         }
                                     </div>
 
