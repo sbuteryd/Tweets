@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import Tweets from './Tweets'
 import NewTweet from './NewTweet'
-import {Link} from 'react-router-dom'
 
 
 class TweetPage extends Component {
@@ -13,11 +12,11 @@ class TweetPage extends Component {
             <div>
                 <div>
                     <Tweets id={id}/>
-                    <NewTweet/>
+                    <NewTweet id={id}/>
                 </div>
                 <div className='replies'>
                     {tweets[id].replies.length >0&&<h3 className='replies-title'>Replies</h3>}
-                    {tweets[id].replies.map((id)=>(
+                    {tweets[id].replies.length>0&&tweets[id].replies.map((id)=>(
                             <Tweets key={id} id={id}/>
                     ))}
                 </div>

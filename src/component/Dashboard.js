@@ -20,11 +20,9 @@ class Dashboard extends Component{
         );
     }
 }
-
 function mapStateToProps({tweets}) {
-    const tweetsList = Object.keys(tweets)
     return {
-        tweetIds:tweetsList.sort((a,b)=>b.timestamp - a.timestamp)
+        tweetIds:Object.keys(tweets).sort((a,b)=> tweets[b].timestamp - tweets[a].timestamp)
     }
 
 }

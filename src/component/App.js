@@ -18,16 +18,22 @@ class App extends Component{
     render() {
     return (
         <Fragment>
-            <Router>
-                <Nav/>
-                <Route path="/" exact component={Dashboard}/>
-                <Route path="/new" component={NewTweet}/>
-                <Route path="/tweet/:id" component={TweetPage}/>
-            </Router>
-
+            <div>
+                    <Router>
+                        <Nav/>
+                        <Route path="/" exact component={Dashboard}/>
+                        <Route path="/new" component={NewTweet}/>
+                        <Route path="/tweet/:id" component={TweetPage}/>
+                    </Router>
+            </div>
         </Fragment>
     );
   }
+}
+function mapStateToProps({authedUser,tweets,users}) {
+    console.log(authedUser)
+    return {
+    }
 }
 
 export default connect()(App);
