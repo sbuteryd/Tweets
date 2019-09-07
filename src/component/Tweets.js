@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {handleToggleTweet} from '../actions/tweets'
 import {formatDate, formatTweet} from '../utils/helpers'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 class Tweets extends Component {
     changeHeart = (e,tweet) => {
@@ -10,13 +10,23 @@ class Tweets extends Component {
 
         this.props.dispatch(handleToggleTweet(tweet))
     }
-
+    toParent =(e,id)=>{
+        e.preventDefault()
+        this.props.history.push(`/tweet/${id}`)
+    }
     render() {
+        const { tweet } = this.props
+
+        if (tweet === null) {
+            return <p>This Tweet doesn't existd</p>
+
+        }
         const {
-            avatar, hasLiked, id, likes,
-            name, replies, text,
-            timestamp
+            avatar, hasLiked, id, likes,parent,
+            name, replies,text,
+            timestamp,
         } = this.props.tweet
+
         return (
             <Link className='tweet' to={`/tweet/${id}`}>
                 <div className='container'>
@@ -25,13 +35,20 @@ class Tweets extends Component {
                             <div className='textarea-avatar'>
                                 <img className='textarea-imag' src={avatar} alt=""/>
                             </div>
+
                             <div className='textarea-text'>
+
                                 <div className='textarea-info'>
                                     <h3 className='textarea-info-name'>{name}</h3>
                                     <p className=''>{formatDate(timestamp)}</p>
+                                    {parent&&<button
+                                        onClick={(e)=>this.toParent(e,parent.id)}
+                                        style={{color:'red'}}>
+                                        @Replying {parent.author}
+                                    </button>}
+
                                     <p className='textarea-text-text'>{text}</p>
                                 </div>
-
                                 <div className='textarea-like-container'>
                                     <button className='textarea-like-forward'/>
                                     {replies > 0 && <span className='textarea-like-forward-number'>{replies}</span>
@@ -61,11 +78,13 @@ class Tweets extends Component {
 
 function mapStateToProps({tweets, users, authedUser}, {id}) {
     const tweet = tweets[id]
-    const parentTweet = tweets[tweet.replyingTo] ? tweets[tweet.replyingTo] : null
+
+    const parentTweet = tweet ? tweets[tweet.replyingTo]:null
     return {
-        tweet: formatTweet(tweet, users[tweet.author], authedUser, parentTweet),
+        tweet: tweet ? formatTweet(tweet, users[tweet.author], authedUser, parentTweet)
+            : null,
         authedUser
     }
 }
 
-export default connect(mapStateToProps)(Tweets)
+export default withRouter(connect(mapStateToProps)(Tweets))

@@ -6,18 +6,19 @@ import NewTweet from './NewTweet'
 
 class TweetPage extends Component {
     render() {
-        const {id,tweets} = this.props;
-        console.log(id,tweets)
+        const { id, replies } = this.props
         return (
             <div>
                 <div>
                     <Tweets id={id}/>
                     <NewTweet id={id}/>
                 </div>
+                {replies.length >0&&<h3 className='replies-title'>Replies</h3>}
                 <div className='replies'>
-                    {tweets[id].replies.length >0&&<h3 className='replies-title'>Replies</h3>}
-                    {tweets[id].replies.length>0&&tweets[id].replies.map((id)=>(
+                    {replies.map((id)=>(
+                        <li key={id}>
                             <Tweets key={id} id={id}/>
+                        </li>
                     ))}
                 </div>
             </div>
@@ -29,7 +30,9 @@ function mapStateToProps({tweets,autheduser},props) {
     const {id}= props.match.params
     return {
         id,
-        tweets
+        replies: !tweets[id]
+            ? []
+            : tweets[id].replies.sort((a,b,) => tweets[b].timestamp - tweets[a].timestamp)
     }
 }
 

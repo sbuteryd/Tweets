@@ -7754,7 +7754,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.6, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -7972,6 +7972,13 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is
   version "16.9.0"
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.9.0.tgz?cache=0&sync_timestamp=1565317930066&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-is%2Fdownload%2Freact-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha1-IcqVYTmarQ/xp3AcAWg+jKmB7cs=
+
+react-redux-loading@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/react-redux-loading/download/react-redux-loading-1.0.1.tgz#b03685c6c0304681b3097a27a3e6ee9b534fd699"
+  integrity sha1-sDaFxsAwRoGzCXono+bum1NP1pk=
+  dependencies:
+    prop-types "^15.5.6"
 
 react-redux@^7.1.1:
   version "7.1.1"

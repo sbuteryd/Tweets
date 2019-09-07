@@ -4,6 +4,7 @@ import {get_authedUser} from "./autheduser";
 import * as  API from '../utils/api'
 
 
+
 const AUTHED_USER = 'tylermcginnis'
 
 export function handleInitData() {
@@ -13,7 +14,7 @@ export function handleInitData() {
             dispatch(get_users(users))
             dispatch(get_authedUser(AUTHED_USER))
             dispatch(get_tweets(tweets))
-        //
+            //
         })
     }
 }

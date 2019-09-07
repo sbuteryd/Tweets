@@ -1,7 +1,9 @@
 import * as API from '../utils/api'
+
 export const TWEETS = 'GET_TWEETS';
 export const TOGGLE_TWEET ='TOGGLE_TWEET';
 export const ADD_TWEET ='ADD_TWEET'
+
 
 export function get_tweets(tweets) {
     return {
@@ -30,9 +32,9 @@ function toggleTweet(tweet) {
 
 export function handleAddTweet(tweet) {
     return (dispatch)=>{
-        return API.saveTweet(tweet).then((tweet)=>{
-            dispatch(addTweets(tweet))
-        })
+        return API.saveTweet(tweet)
+            .then((tweet)=>{
+            dispatch(addTweets(tweet))})
     }
 }
 export function handleToggleTweet(tweet) {

@@ -19,13 +19,16 @@ export function tweets(state={},action) {
                 }
             };
         case ADD_TWEET:
-            console.log('ADD_TWEET0000---',action)
+            const {newTweet} = action
             let replyingTo= {}
-            if(action.newTweet.replyingTo !==null){
+            if(newTweet.replyingTo !==null){
                 replyingTo ={
-                    ...state[action.newTweet.replyingTo],
-                    replies:state[action.newTweet.replyingTo]
-                        .replies.concat(action.newTweet.id)
+                   [newTweet.replyingTo]:{
+                       ...state[newTweet.replyingTo],
+                       replies:state[newTweet.replyingTo]
+                           .replies.concat(action.newTweet.id)
+                   },
+
                 }
             }
             console.log('replyingTo----',replyingTo)
@@ -34,9 +37,7 @@ export function tweets(state={},action) {
                 [action.newTweet.id]:{
                     ...action.newTweet,
                 },
-                [replyingTo.id]:{
-                    ...replyingTo
-                }
+                ...replyingTo
             }
 
         default:
