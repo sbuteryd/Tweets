@@ -8,6 +8,7 @@ import TweetPage from './TweetPage'
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Nav from './Nav'
+import LoadingBar from 'react-redux-loading'
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
                 <Fragment>
                     <Nav/>
                     <div>
+                        <LoadingBar/>
                         {this.props.loading ? null:
                         <div>
                             <Route path="/" exact component={Dashboard}/>
